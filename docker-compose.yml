@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  mongodb:
+    image: 'mongo:3.6'
+
+  redis:
+    image: 'redis:4'
+
+  api-server:
+    image: 'cautionyourblast/learning-locker-api-server'
+    ports:
+      - '8080'
+    depends_on:
+      - mongodb
+      - redis
+
+  api-worker:
+    image: 'cautionyourblast/learning-locker-api-worker'
+    depends_on:
+      - api-server
+
+  ui:
+    image: 'cautionyourblast/learning-locker-ui'
+    ports:
+      - '3000'
+    depends_on:
+      - api-server
