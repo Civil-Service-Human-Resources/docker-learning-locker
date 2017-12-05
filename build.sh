@@ -2,7 +2,7 @@
 
 PREFIX=learning-locker-
 ORGANISATION="cautionyourblast"
-IMAGES=( "base" "api-server" "api-worker" "ui" )
+IMAGES=( "base" "api-server" "api-worker" "ui" "cli" "xapi" )
 
 function build {
     IMAGE=$1

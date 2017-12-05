@@ -2,10 +2,25 @@ version: '2'
 
 services:
   mongodb:
-    image: 'mongo:3.6'
+    image: 'mongo:3.2'
 
   redis:
     image: 'redis:4'
+
+  mail:
+    image: 'mailhog/mailhog'
+    ports:
+      - '8025:8025'
+
+  xapi:
+    image: 'cautionyourblast/learning-locker-xapi'
+    ports:
+      - '8081:8081'
+    env_file:
+      - variables.env
+    depends_on:
+      - mongodb
+      - redis
 
   api-server:
     image: 'cautionyourblast/learning-locker-api-server'
@@ -16,6 +31,7 @@ services:
     depends_on:
       - mongodb
       - redis
+      - mail
 
   api-worker:
     image: 'cautionyourblast/learning-locker-api-worker'
@@ -32,3 +48,12 @@ services:
       - '3000:3000'
     depends_on:
       - api-server
+
+  cli:
+    image: 'cautionyourblast/learning-locker-cli'
+    env_file:
+      - variables.env
+    depends_on:
+      - api-server
+    stdin_open: true
+    tty: true
