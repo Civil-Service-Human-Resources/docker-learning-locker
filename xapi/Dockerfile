@@ -20,5 +20,6 @@ RUN git clone https://github.com/LearningLocker/xapi-service.git /etc/xapi-servi
 WORKDIR /etc/xapi-service
 
 RUN npm install
+RUN npm run build
 
 COPY .env .
