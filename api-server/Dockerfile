@@ -1,4 +1,4 @@
-FROM cautionyourblast/learning-locker-base:latest
+FROM cshr/learning-locker-base:latest
 
 CMD [ "node", "api/dist/server" ]
 

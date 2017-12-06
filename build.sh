@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PREFIX=learning-locker-
-ORGANISATION="cautionyourblast"
+ORGANISATION="cshr"
 IMAGES=( "base" "api-server" "api-worker" "ui" "cli" "xapi" )
 
 function build {

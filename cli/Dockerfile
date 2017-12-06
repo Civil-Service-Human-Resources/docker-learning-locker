@@ -1,4 +1,4 @@
-FROM cautionyourblast/learning-locker-base:latest
+FROM cshr/learning-locker-base:latest
 
 ENTRYPOINT [ "node", "cli/dist/server" ]
 
