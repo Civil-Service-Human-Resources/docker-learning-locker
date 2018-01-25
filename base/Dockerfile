@@ -18,7 +18,7 @@ ENV REDIS_PORT 6379
 ENV REDIS_DB 0
 ENV REDIS_PREFIX LEARNINGLOCKER
 
-RUN git clone https://github.com/LearningLocker/learninglocker.git /etc/learning-locker
+RUN git clone --branch v2.1.3 --depth 1 https://github.com/LearningLocker/learninglocker.git /etc/learning-locker
 
 WORKDIR /etc/learning-locker
 
